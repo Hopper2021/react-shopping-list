@@ -69,6 +69,9 @@ const getList = () => {
                     <button>Reset</button>
                     <button>Clear</button>
                     <div className="content-container">
+                        Map should go here:
+                        {shoppingList.map(shoppingItem =>
+                                (<p> {shoppingItem.name} {shoppingItem.quantity} {shoppingItem.unit}</p>))}  
                     </div>
                 </div>
             </main>
@@ -77,3 +80,6 @@ const getList = () => {
 }
 
 export default App;
+
+// {famousPeopleArray.map(people =>
+//(<li key={people.id}>{people.name} does {people.role}</li>))}
