@@ -9,7 +9,20 @@ function App() {
         <div className="App">
             <Header />
             <main>
-                <p>Under Construction...</p>
+                <h3>Add an item</h3>
+                <div>
+                    <p>Item: <input /></p>
+                    <p>Quantity: <input /></p>
+                    <p>Unit: <input /></p>
+                    <button>Save</button>
+                </div>
+                <h3>Shopping List</h3>
+                <div>
+                    <button>Reset</button>
+                    <button>Clear</button>
+                    <div className="content-container">
+                    </div>
+                </div>
             </main>
         </div>
     );
