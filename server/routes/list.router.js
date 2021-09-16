@@ -42,11 +42,24 @@ router.put('/:id', (req,res) =>{
     console.log('in /list PUT');
     console.log('req.params is', req.params );
     const itemId = req.params.id;
-    let queryText =`UPDATE "shopping-list" SET "purchased" = 'true' WHERE id = $1;`;
+    let queryText =`UPDATE "shopping-list" SET "purchased" = 'true' WHERE "id" = $1;`;
     pool.query(queryText, [itemId]).then((result) =>{
         res.sendStatus(200);
     }).catch((error) =>{
         console.log('error with PUT /list');
+        res.sendStatus(500);
+    })
+})
+
+//DELETE
+router.delete('/:id', (req, res) => {
+    const itemId = req.params.id;
+    const sqlText = `DELETE FROM "shopping-list" WHERE "id" = $1;`;
+    pool.query(sqlText, [itemId]).then((result) => {
+        console.log('Deleted item from database where id equals', itemId);
+        res.sendStatus(201);
+    }).catch((error) => {
+        console.log('Error deleting creature with ID', itemId);
         res.sendStatus(500);
     })
 })

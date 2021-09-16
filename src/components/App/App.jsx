@@ -10,7 +10,7 @@ function App() {
     let [listName, setListName] = useState('');
     let [listQuantity, setListQuantity] = useState(0);
     let [listUnit, setListUnit] = useState('');
-    let [listArray, setListArray] = useState([]);
+    let [shoppingList, setShoppingList] = useState([]);
 
     const handleSubmit = (event) => {
        addList(); 
@@ -44,7 +44,6 @@ useEffect(() => {
     getList()
 }, [])
 
-const [shoppingList, setShoppingList] = useState([]);
 const getList = () => {
     axios({
         method: 'GET',
@@ -58,26 +57,26 @@ const getList = () => {
     })
 }
 
-useEffect(() => {
-    getList();
-},[]);
-
     return (
         <div className="App">
             <Header />
             <main>
                 <h3>Add an item</h3>
                 <div>
-                    <p>Item: <input /></p>
-                    <p>Quantity: <input /></p>
-                    <p>Unit: <input /></p>
+                    <p>Item: <input onChange={(event) => setListName(event.target.value)} placeholder="Add item"/></p>
+                    <p>Quantity: <input onChange={(event) => setListQuantity(event.target.value)} type="number" placeholder="Quantity"/></p>
+                    <p>Unit: <input onChange={(event) => setListUnit(event.target.value)} placeholder="An Absolute Unit" /></p>
                     <button onClick={handleSubmit}>Save</button>
+
                 </div>
                 <h3>Shopping List</h3>
                 <div>
                     <button>Reset</button>
                     <button>Clear</button>
                     <div className="content-container">
+                        Map should go here:
+                        {shoppingList.map(shoppingItem =>
+                                (<p> {shoppingItem.name} {shoppingItem.quantity} {shoppingItem.unit}</p>))}  
                     </div>
                 </div>
             </main>
@@ -86,3 +85,6 @@ useEffect(() => {
 }
 
 export default App;
+
+// {famousPeopleArray.map(people =>
+//(<li key={people.id}>{people.name} does {people.role}</li>))}
