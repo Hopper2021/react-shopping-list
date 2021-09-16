@@ -7,17 +7,16 @@ import {useState} from 'react';
 
 function App() {
 
-    const [purchase, setPurchase] = useState(true);
+    const [purchased, setPurchased] = useState(false);
 
     const handlePurchase = () => {
     console.log('updating item to purchased!!');
     const itemId = response.data.id;
     axios({
         method:'PUT',
-        url: '/list/{itemId}',
+        url: `/list/{itemId}`, //figure out how to make this work better
     }).then((response) =>{
-        //getList();
-        setPurchase();
+        setPurchased();
     }).catch((error) =>{
         console.log('error with updating item!', error );
         alert('Error with PUT!');
