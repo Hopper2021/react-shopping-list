@@ -6,6 +6,11 @@ import './App.css';
 
 
 function App() {
+    //create useStates
+    let [listName, setListName] = useState('');
+    let [listQuantity, setListQuantity] = useState(0);
+    let [listUnit, setListUnit] = useState('');
+    let [listArray, setListArray] = useState([]);
 
     //POST
     const addList = (event) => {
@@ -14,15 +19,19 @@ function App() {
             method: 'POST',
             url: '/list',
             data: {
-              name:
-              quantity:
-              unit:  
-            }.then((response) => {
-                console.log(response);
-                //clearUseStateInputs
-                //fetchList()/GET function;
-            })
-        })
+              name: listName,
+              quantity: listQuantity,
+              unit: listUnit,
+            }
+        }).then((response) => {
+            console.log(response);
+            getList();
+            setListName('');
+            setListQuantity('');
+            setListUnit('');
+        }).catch(function (error) {
+            console.log(error);
+        });
     }
     return (
         <div className="App">
