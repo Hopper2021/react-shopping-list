@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React from 'react';
 
 import Header from '../Header/Header.jsx'
@@ -5,6 +6,24 @@ import './App.css';
 
 
 function App() {
+
+    //POST
+    const addList = (event) => {
+        event.preventDefault();
+        axios({
+            method: 'POST',
+            url: '/list',
+            data: {
+              name:
+              quantity:
+              unit:  
+            }.then((response) => {
+                console.log(response);
+                //clearUseStateInputs
+                //fetchList()/GET function;
+            })
+        })
+    }
     return (
         <div className="App">
             <Header />
