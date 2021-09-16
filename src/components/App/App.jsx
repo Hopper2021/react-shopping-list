@@ -19,9 +19,9 @@ function App() {
             method: 'POST',
             url: '/list',
             data: {
-              name: listName,
-              quantity: listQuantity,
-              unit: listUnit,
+                name: listName,
+                quantity: listQuantity,
+                unit: listUnit,
             }
         }).then((response) => {
             console.log(response);
