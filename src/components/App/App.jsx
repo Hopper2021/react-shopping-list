@@ -10,7 +10,7 @@ function App() {
     let [listName, setListName] = useState('');
     let [listQuantity, setListQuantity] = useState(0);
     let [listUnit, setListUnit] = useState('');
-    let [listArray, setListArray] = useState([]);
+    let [shoppingList, setShoppingList] = useState([]);
 
     //POST
     const addList = (event) => {
@@ -40,7 +40,6 @@ useEffect(() => {
     getList()
 }, [])
 
-const [shoppingList, setShoppingList] = useState([]);
 const getList = () => {
     axios({
         method: 'GET',
