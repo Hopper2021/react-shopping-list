@@ -17,8 +17,8 @@ function App() {
     }
 
     //POST
-    const addList = (event) => {
-        event.preventDefault();
+    const addList = () => {
+        //event.preventDefault();
         axios({
             method: 'POST',
             url: '/list',
@@ -71,7 +71,7 @@ useEffect(() => {
                     <p>Item: <input /></p>
                     <p>Quantity: <input /></p>
                     <p>Unit: <input /></p>
-                    <button onSubmit={handleSubmit}>Save</button>
+                    <button onClick={handleSubmit}>Save</button>
                 </div>
                 <h3>Shopping List</h3>
                 <div>
