@@ -15,7 +15,7 @@ function App() {
     const itemId = response.data.id;
     axios({
         method:'PUT',
-        url: `/list/{itemId}`, //figure out how to make this work better
+        url: `/list/${itemId}`, //figure out how to make this work better
     }).then((response) =>{
         setPurchased();
     }).catch((error) =>{
