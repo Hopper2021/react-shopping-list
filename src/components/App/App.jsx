@@ -7,10 +7,19 @@ import {useState} from 'react';
 
 function App() {
 
-    const [shoppingList, setShoppingList] = useState([]);
+    const [purchased, setPurchased] = useState([]);
 
     const updateList = () => {
-
+    console.log('updating item!!');
+    axios({
+        method:'PUT',
+        url: '/list/:id',
+    }).then((response) =>{
+        //getList(); or whatever we call this function
+    }).catch((error) =>{
+        console.log('error with updating item!', error );
+        alert('Error with PUT!');
+    });
     }//end updateList
 
 
