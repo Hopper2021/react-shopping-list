@@ -1,11 +1,39 @@
+import axios from 'axios';
 import React from 'react';
 import { useState, useEffect } from 'react';
-import axios from 'axios';
 import Header from '../Header/Header.jsx'
 import './App.css';
 
 
 function App() {
+    //create useStates
+    let [listName, setListName] = useState('');
+    let [listQuantity, setListQuantity] = useState(0);
+    let [listUnit, setListUnit] = useState('');
+    let [listArray, setListArray] = useState([]);
+
+    //POST
+    const addList = (event) => {
+        event.preventDefault();
+        axios({
+            method: 'POST',
+            url: '/list',
+            data: {
+              name: listName,
+              quantity: listQuantity,
+              unit: listUnit,
+            }
+        }).then((response) => {
+            console.log(response);
+            getList();
+            setListName('');
+            setListQuantity('');
+            setListUnit('');
+        }).catch(function (error) {
+            console.log(error);
+        });
+    }
+
 const [shoppingList, setShoppingList] = useState([]);
 const getList = () => {
     axios({
@@ -23,6 +51,7 @@ const getList = () => {
 useEffect(() => {
     getList();
 },[]);
+
     return (
         <div className="App">
             <Header />
