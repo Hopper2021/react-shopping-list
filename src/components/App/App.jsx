@@ -12,6 +12,10 @@ function App() {
     let [listUnit, setListUnit] = useState('');
     let [listArray, setListArray] = useState([]);
 
+    const handleSubmit = (event) => {
+       addList(); 
+    }
+
     //POST
     const addList = (event) => {
         event.preventDefault();
@@ -67,7 +71,7 @@ useEffect(() => {
                     <p>Item: <input /></p>
                     <p>Quantity: <input /></p>
                     <p>Unit: <input /></p>
-                    <button>Save</button>
+                    <button onSubmit={handleSubmit}>Save</button>
                 </div>
                 <h3>Shopping List</h3>
                 <div>
