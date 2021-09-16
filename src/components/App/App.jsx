@@ -34,6 +34,12 @@ function App() {
         });
     }
 
+// renders list on page load
+// linked to getList.then setShoppingList
+useEffect(() => {
+    getList()
+}, [])
+
 const [shoppingList, setShoppingList] = useState([]);
 const getList = () => {
     axios({
