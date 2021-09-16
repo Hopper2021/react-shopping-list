@@ -54,10 +54,6 @@ const getList = () => {
     })
 }
 
-useEffect(() => {
-    getList();
-},[]);
-
     return (
         <div className="App">
             <Header />
