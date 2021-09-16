@@ -1,10 +1,19 @@
 import React from 'react';
-
 import Header from '../Header/Header.jsx'
 import './App.css';
+import axios from 'axios';
+import {useState} from 'react';
 
 
 function App() {
+
+    const [shoppingList, setShoppingList] = useState([]);
+
+    const updateList = () => {
+
+    }//end updateList
+
+
     return (
         <div className="App">
             <Header />
