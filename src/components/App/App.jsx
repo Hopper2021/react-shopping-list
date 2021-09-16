@@ -12,9 +12,13 @@ function App() {
     let [listUnit, setListUnit] = useState('');
     let [shoppingList, setShoppingList] = useState([]);
 
+    const handleSubmit = (event) => {
+       addList(); 
+    }
+
     //POST
-    const addList = (event) => {
-        event.preventDefault();
+    const addList = () => {
+        //event.preventDefault();
         axios({
             method: 'POST',
             url: '/list',
@@ -62,7 +66,8 @@ const getList = () => {
                     <p>Item: <input onChange={(event) => setListName(event.target.value)} placeholder="Add item"/></p>
                     <p>Quantity: <input onChange={(event) => setListQuantity(event.target.value)} type="number" placeholder="Quantity"/></p>
                     <p>Unit: <input onChange={(event) => setListUnit(event.target.value)} placeholder="An Absolute Unit" /></p>
-                    <button>Save</button>
+                    <button onClick={handleSubmit}>Save</button>
+
                 </div>
                 <h3>Shopping List</h3>
                 <div>
