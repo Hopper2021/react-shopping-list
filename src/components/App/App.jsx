@@ -57,6 +57,21 @@ const getList = () => {
     })
 }
 
+const handleDelete = (itemId) => {
+    console.log('User clicked delete item number', itemId);
+    deleteItem(itemId);
+}
+
+const deleteItem = (itemId) => {
+    console.log('Delete item');
+    axios({
+        method: 'DELETE',
+        url: `/list/${itemId}`,
+    }).then(getList).catch((error) => {
+        console.log('Error in DELETE', error);
+    })
+}
+
 const [purchased, setPurchased] = useState(false);
 
 const handlePurchase = () => {
@@ -90,8 +105,8 @@ axios({
                     <button id="reset-button">Reset</button>
                     <button id="clear-button">Clear</button>
                     <div className="content-container">
-                        {shoppingList.map(shoppingItem =>
-                                (<p> {shoppingItem.name} {shoppingItem.quantity} {shoppingItem.unit}</p>))}  
+                        Map should go here:
+                        {shoppingList.map(shoppingItem => (<div><p> {shoppingItem.name} {shoppingItem.quantity} {shoppingItem.unit}</p><button onClick={() => handleDelete(shoppingItem.id)}>Remove Item</button></div>))}        
                     </div>
                 </div>
             </main>
