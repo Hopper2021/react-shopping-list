@@ -75,8 +75,8 @@ const getList = () => {
                     <button>Clear</button>
                     <div className="content-container">
                         Map should go here:
-                        {shoppingList.map(shoppingItem =>
-                                (<p> {shoppingItem.name} {shoppingItem.quantity} {shoppingItem.unit}</p>))}  
+                        {shoppingList.map(shoppingItem => (<p> {shoppingItem.name} {shoppingItem.quantity} {shoppingItem.unit}</p>))}  
+                                
                     </div>
                 </div>
             </main>
