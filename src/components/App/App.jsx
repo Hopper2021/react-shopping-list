@@ -71,8 +71,8 @@ const getList = () => {
                 </div>
                 <h3>Shopping List</h3>
                 <div>
-                    <button>Reset</button>
-                    <button>Clear</button>
+                    <button id="reset-button">Reset</button>
+                    <button id="clear-button">Clear</button>
                     <div className="content-container">
                         Map should go here:
                         {shoppingList.map(shoppingItem =>
