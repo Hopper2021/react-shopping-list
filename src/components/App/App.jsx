@@ -72,6 +72,22 @@ const deleteItem = (itemId) => {
     })
 }
 
+const [purchased, setPurchased] = useState(false);
+
+const handlePurchase = () => {
+console.log('updating item to purchased!!');
+const itemId = response.data.id;
+axios({
+    method:'PUT',
+    url: `/list/${itemId}`, //figure out how to make this work better
+}).then((response) =>{
+    setPurchased();
+}).catch((error) =>{
+    console.log('error with updating item!', error );
+    alert('Error with PUT!');
+});
+}//end updateList
+
     return (
         <div className="App">
             <Header />
@@ -86,8 +102,8 @@ const deleteItem = (itemId) => {
                 </div>
                 <h3>Shopping List</h3>
                 <div>
-                    <button>Reset</button>
-                    <button>Clear</button>
+                    <button id="reset-button">Reset</button>
+                    <button id="clear-button">Clear</button>
                     <div className="content-container">
                         Map should go here:
                         {shoppingList.map(shoppingItem => (<div><p> {shoppingItem.name} {shoppingItem.quantity} {shoppingItem.unit}</p><button onClick={() => handleDelete(shoppingItem.id)}>Remove Item</button></div>))}        
