@@ -74,7 +74,6 @@ const getList = () => {
                     <button id="reset-button">Reset</button>
                     <button id="clear-button">Clear</button>
                     <div className="content-container">
-                        Map should go here:
                         {shoppingList.map(shoppingItem =>
                                 (<p> {shoppingItem.name} {shoppingItem.quantity} {shoppingItem.unit}</p>))}  
                     </div>
