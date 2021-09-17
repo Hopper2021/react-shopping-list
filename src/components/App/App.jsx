@@ -57,6 +57,22 @@ const getList = () => {
     })
 }
 
+const [purchased, setPurchased] = useState(false);
+
+const handlePurchase = () => {
+console.log('updating item to purchased!!');
+const itemId = response.data.id;
+axios({
+    method:'PUT',
+    url: `/list/${itemId}`, //figure out how to make this work better
+}).then((response) =>{
+    setPurchased();
+}).catch((error) =>{
+    console.log('error with updating item!', error );
+    alert('Error with PUT!');
+});
+}//end updateList
+
     return (
         <div className="App">
             <Header />
