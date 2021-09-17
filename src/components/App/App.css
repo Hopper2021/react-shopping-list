@@ -3,3 +3,7 @@ main {
   margin: auto;
 }
 
+#reset-button, #clear-button {
+  margin: 10px;
+  margin-bottom: 20px;
+}
